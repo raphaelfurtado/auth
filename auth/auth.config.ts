@@ -32,7 +32,7 @@ export default {
                         user.password
                     );
 
-                    if(passwordsMatch) return user;
+                    if (passwordsMatch) return user;
                 }
 
                 return null;
