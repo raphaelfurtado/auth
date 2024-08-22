@@ -10,7 +10,7 @@ import { getAccountByUserId } from "./data/account"
 export const {
     auth,
     handlers,
-    signIn, 
+    signIn,
     signOut,
 } = NextAuth({
     pages: {
@@ -87,6 +87,9 @@ export const {
             token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
             return token;
+        },
+        async redirect({ url, baseUrl }) {
+            return url.startsWith(baseUrl) ? url : baseUrl + "/settings";
         }
     },
     adapter: PrismaAdapter(db),
