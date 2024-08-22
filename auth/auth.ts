@@ -89,7 +89,7 @@ export const {
             return token;
         },
         async redirect({ url, baseUrl }) {
-            return url.startsWith(baseUrl) ? url : baseUrl + "/settings";
+            return url.startsWith(baseUrl) ? url : baseUrl + process.env.DEFAULT_LOGIN_REDIRECT;
         }
     },
     adapter: PrismaAdapter(db),
