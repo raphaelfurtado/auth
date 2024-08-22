@@ -27,12 +27,21 @@ const AdminPage = () => {
         fetch("/api/admin")
             .then((response) => {
                 if (response.ok) {
-                    toast.success("Com permissão para API");
+                    return response.json(); // Extrai o objeto JSON da resposta
                 } else {
-                    toast.success("Sem permissão para API");
+                    throw new Error("Sem permissão para API");
                 }
             })
+            .then((data) => {
+                console.log("Role:", data.role); // Acessa o objeto role
+                toast.success("Com permissão para API");
+            })
+            .catch((error) => {
+                console.error(error);
+                toast.error(error.message);
+            });
     }
+
 
 
     return (
