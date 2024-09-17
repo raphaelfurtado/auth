@@ -64,16 +64,16 @@ const SettingsPage = () => {
     }
 
     return (
-        <Card className="w-[600px]">
+        <Card className="w-full max-w-[600px] mx-auto">
             <CardHeader>
-                <p className="text-2xl font-semibold text-center">
+                <p className="text-xl md:text-2xl font-semibold text-center">
                     ⚙ Configurações
                 </p>
             </CardHeader>
             <CardContent>
                 <Form {...form}>
                     <form
-                        className="space-y-6"
+                        className="space-y-4 md:space-y-6"
                         onSubmit={form.handleSubmit(onSubmit)}>
                         <div className="space-y-4">
                             <FormField
@@ -87,6 +87,7 @@ const SettingsPage = () => {
                                                 {...field}
                                                 disabled={isPending}
                                                 placeholder="João"
+                                                className="w-full"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -107,6 +108,7 @@ const SettingsPage = () => {
                                                         disabled={isPending}
                                                         placeholder="joao@gmail.com"
                                                         type="email"
+                                                        className="w-full"
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
@@ -125,6 +127,7 @@ const SettingsPage = () => {
                                                         disabled={isPending}
                                                         placeholder="******"
                                                         type="password"
+                                                        className="w-full"
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
@@ -143,6 +146,7 @@ const SettingsPage = () => {
                                                         disabled={isPending}
                                                         placeholder="******"
                                                         type="password"
+                                                        className="w-full"
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
@@ -163,7 +167,7 @@ const SettingsPage = () => {
                                             defaultValue={field.value}
                                         >
                                             <FormControl>
-                                                <SelectTrigger>
+                                                <SelectTrigger className="w-full">
                                                     <SelectValue
                                                         placeholder="Selecione a regra"
                                                     />
@@ -192,8 +196,8 @@ const SettingsPage = () => {
                                         control={form.control}
                                         name="isTwoFactorEnabled"
                                         render={({ field }) => (
-                                            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
-                                                <div className="space-y-0.5">
+                                            <FormItem className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-lg border p-3 shadow-sm">
+                                                <div className="space-y-0.5 mb-2 sm:mb-0">
                                                     <FormLabel>Autenticação de dois fatores</FormLabel>
                                                     <FormDescription>
                                                         Habilitar autenticação de dois fatores para sua conta
@@ -217,13 +221,13 @@ const SettingsPage = () => {
                         <Button
                             type="submit"
                             disabled={isPending}
+                            className="w-full"
                         >
                             Salvar
                         </Button>
                     </form>
                 </Form>
             </CardContent>
-
         </Card>
     );
 }
